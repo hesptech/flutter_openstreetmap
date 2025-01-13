@@ -10,7 +10,7 @@ class MapPropertyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final screenSize = MediaQuery.of(context).size;
+    //final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
@@ -38,10 +38,16 @@ class MapPropertyScreen extends StatelessWidget {
             options: MapOptions(
               initialCenter: const LatLng(43.651070, -79.347015),
               initialZoom: 17,
-              interactionOptions: InteractionOptions(
+              /* interactionOptions: InteractionOptions(
                 flags: screenSize.width  < 950 ? InteractiveFlag.pinchZoom : InteractiveFlag.all
                 //flags: InteractiveFlag.doubleTapZoom
 
+              ), */
+              cameraConstraint: CameraConstraint.contain(
+                bounds: LatLngBounds(
+                  const LatLng(-90, -180),
+                  const LatLng(90, 180),
+                ),
               ),
             ),
             children: [
@@ -60,7 +66,7 @@ class MapPropertyScreen extends StatelessWidget {
                     ),
                   ),
                 ],)
-            ],
+            ],  
           ),
         ),
       ),
