@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
-class MapPropertyScreen extends StatelessWidget {
+class MapMarkerScreen extends StatelessWidget {
   static String pathScreen = "map_property_screen";
 
-  const MapPropertyScreen({super.key});
+  const MapMarkerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class MapPropertyScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Map location', style: TextStyle(fontSize: 26)),
+        title: const Text('FlutterMap MarkerLayer', style: TextStyle(fontSize: 26)),
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_openstreetmap/cancellable_tile_provider.dart';
 import 'package:flutter_openstreetmap/home_screen.dart';
-import 'package:flutter_openstreetmap/map_property_screen.dart';
-//import 'package:flutter_openstreetmap/messages_screen.dart';
+import 'package:flutter_openstreetmap/map_tile_layer_screen.dart';
+import 'package:flutter_openstreetmap/map_marker_layer_screen.dart';
 import 'package:flutter_openstreetmap/notifications_screen.dart';
 
 class CustomBottomNavigation extends StatefulWidget {
@@ -21,12 +20,10 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
     return Scaffold(
    
       body: <Widget>[
-        /// Home page
         const HomeScreen(),
         const NotificationsScreen(),
-        //const MessagesScreen(),
-        const MapPropertyScreen(),
-        const CancellableTileProviderPage(),
+        const MapTileLayerScreen(),
+        const MapMarkerScreen(),
       ][currentPageIndex],
     
       bottomNavigationBar: NavigationBar(
@@ -49,22 +46,15 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
             ),
             label: 'Notifications',
           ),
-          /* NavigationDestination(
-            icon: Badge(
-              label: Text('2'),
-              child: Icon(Icons.messenger_sharp),
-            ),
-            label: 'Messages',
-          ), */
           NavigationDestination(
             selectedIcon: Icon(Icons.map),
             icon: Icon(Icons.map_outlined),
-            label: 'Map',
+            label: 'TileLayer',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.map),
             icon: Icon(Icons.map_outlined),
-            label: 'Map 2',
+            label: 'MarkerLayer',
           ),
         ],
       ),

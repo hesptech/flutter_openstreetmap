@@ -5,24 +5,24 @@ import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_ti
 
 import 'package:latlong2/latlong.dart';
 
-class CancellableTileProviderPage extends StatefulWidget {
+class MapTileLayerScreen extends StatefulWidget {
   static const String route = '/cancellable_tile_provider_page';
 
-  const CancellableTileProviderPage({super.key});
+  const MapTileLayerScreen({super.key});
 
   @override
-  State<CancellableTileProviderPage> createState() =>
-      _CancellableTileProviderPageState();
+  State<MapTileLayerScreen> createState() =>
+      _MapTileLayerScreenState();
 }
 
-class _CancellableTileProviderPageState
-    extends State<CancellableTileProviderPage> {
+class _MapTileLayerScreenState
+    extends State<MapTileLayerScreen> {
   bool _providerEnabled = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Cancellable Tile Provider')),
+      appBar: AppBar(title: const Text('FlutterMap TileLayer')),
 
       body: Column(
         children: [
