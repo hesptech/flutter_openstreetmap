@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_openstreetmap/home_screen.dart';
+import 'package:flutter_openstreetmap/map_position_changed_screen.dart';
 import 'package:flutter_openstreetmap/map_tile_layer_screen.dart';
 import 'package:flutter_openstreetmap/map_marker_layer_screen.dart';
 import 'package:flutter_openstreetmap/map_markers_layer_screen.dart';
@@ -20,10 +20,11 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
     return Scaffold(
    
       body: <Widget>[
-        const HomeScreen(),
+        //const HomeScreen(),
         const MapTileLayerScreen(),
         const MapMarkerScreen(),
         const MapMarkersScreen(),
+        const MapPositionChangedScreen(),
       ][currentPageIndex],
     
       bottomNavigationBar: NavigationBar(
@@ -35,11 +36,7 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
         indicatorColor: Colors.amber,
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
-          NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
-          ),
+
           NavigationDestination(
             selectedIcon: Icon(Icons.map),
             icon: Icon(Icons.map_outlined),
@@ -54,6 +51,11 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
             selectedIcon: Icon(Icons.holiday_village),
             icon: Icon(Icons.holiday_village_outlined),
             label: 'MarkersLayer',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
+            label: 'PositionChange',
           ),
         ],
       ),
