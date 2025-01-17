@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_openstreetmap/fakedata.dart';
+import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:flutter_openstreetmap/fakedata.dart';
 
 class MapMarkersScreen extends StatefulWidget {
   static String pathScreen = "map_property_screen";
@@ -18,10 +19,27 @@ class _MapMarkersScreenState extends State<MapMarkersScreen> {
     return List<Marker>.from(FakeData.fakeLocations.map((e) => Marker(
       point: LatLng(e.latitude, e.longitude), 
       child: Builder(
-        builder: (context) => const Icon(
+        /* builder: (context) => const Icon(
           Icons.location_on_outlined, 
           color: Colors.red, 
           size: 40.0,
+        ), */
+        builder: (context) => Container(
+          width: 80.0,
+          height: 80.0,
+          decoration: const BoxDecoration(
+            color: Colors.red,
+            shape: BoxShape.circle,
+          ),
+          child: Center(
+            child: Text(
+              e.name,              
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+          ),
         ),
       ),
     ),),);
@@ -79,5 +97,6 @@ class _MapMarkersScreenState extends State<MapMarkersScreen> {
   TileLayer get openStreetMapTileLayer => TileLayer(
     urlTemplate: 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
     userAgentPackageName: 'dev.fleaflet.flutter_map.example',
+    tileProvider: CancellableNetworkTileProvider(),
   );
 }

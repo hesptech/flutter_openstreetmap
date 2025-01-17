@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 import 'package:latlong2/latlong.dart';
 
 class MapMarkerScreen extends StatelessWidget {
@@ -59,11 +60,33 @@ class MapMarkerScreen extends StatelessWidget {
                     width: 80.0,
                     height: 80.0,
                     alignment: Alignment.center,
-                    child: Icon(
+                    /* child: Icon(
                       Icons.location_on_outlined, 
                       color: Colors.red, 
                       size: 40.0,
+                    ), */
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.location_on_outlined, 
+                          color: Colors.red, 
+                          size: 40.0,
+                        ),
+                        Text(
+                          'Toronto',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
                     ),
+                    /* child: Image.network(
+                      'https://cdn-icons-png.flaticon.com/512/124/124021.png', 
+                      width: 40, 
+                      height: 40, 
+                      fit: BoxFit.fill,
+                    ), */
                   ),
                 ],)
             ],  
@@ -76,5 +99,6 @@ class MapMarkerScreen extends StatelessWidget {
   TileLayer get openStreetMapTileLayer => TileLayer(
     urlTemplate: 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
     userAgentPackageName: 'dev.fleaflet.flutter_map.example',
+    tileProvider: CancellableNetworkTileProvider(),
   );
 }

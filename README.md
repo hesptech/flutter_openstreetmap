@@ -13,6 +13,10 @@ How to display OpenStreetMap in Flutter | Flutter Map
 https://www.youtube.com/watch?v=ZnZM8ot5lcc&t=34s
 
 
+MarkersLayer
+Learn Dotnet Core
+How to Add Markers to a Flutter Map App | Flutter Map Marker Tutorial
+https://www.youtube.com/watch?v=51fOktyMiDY
 
 
 Learn Dotnet Core

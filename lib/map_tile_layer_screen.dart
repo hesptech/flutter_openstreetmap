@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
-
-
 import 'package:latlong2/latlong.dart';
 
 class MapTileLayerScreen extends StatefulWidget {
@@ -54,6 +52,9 @@ class _MapTileLayerScreenState
                   urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                   userAgentPackageName: 'dev.fleaflet.flutter_map.example',
                   tileProvider: CancellableNetworkTileProvider(),
+                  /* tileProvider: _providerEnabled
+                      ? CancellableNetworkTileProvider()
+                      : null, */
                 ),
               ],
             ),
