@@ -97,7 +97,7 @@ class MapMarkerScreen extends StatelessWidget {
   }
 
   TileLayer get openStreetMapTileLayer => TileLayer(
-    urlTemplate: 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     userAgentPackageName: 'dev.fleaflet.flutter_map.example',
     tileProvider: CancellableNetworkTileProvider(),
   );

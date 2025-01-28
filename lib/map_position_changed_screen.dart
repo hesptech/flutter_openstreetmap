@@ -36,6 +36,12 @@ class _MapPositionChangedScreenState extends State<MapPositionChangedScreen> {
   }
 
   @override
+  void dispose() {
+    mapController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -66,7 +72,7 @@ class _MapPositionChangedScreenState extends State<MapPositionChangedScreen> {
         ),
         children: [
           TileLayer(
-            urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             userAgentPackageName: 'com.example.flutter_openstreetmap',
           ),
           MarkerLayer(
